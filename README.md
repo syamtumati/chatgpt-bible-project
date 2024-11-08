@@ -1,4 +1,4 @@
-This project fine-tunes a custom language model on Bible and sermon texts using LLaMA. Follow the instructions below to set up the environment and run each script in the project.
+# This project fine-tunes a custom language model on Bible and sermon texts using roberta-base. Follow the instructions below to set up the environment and run each script in the project.
 
 Prerequisites
 Python 3.8 or above
@@ -22,7 +22,7 @@ On MacOS/Linux:
 source cuda/bin/activate
 Install Required Packages:
 
-Install PyTorch (with CUDA support if applicable):
+#  Install PyTorch (with CUDA support if applicable):
 
 pip install torch==2.0.0+cu118 torchvision==0.15.1+cu118 torchaudio==2.0.1+cu118 -f https://download.pytorch.org/whl/torch_stable.html
 
@@ -41,7 +41,7 @@ Resolve Potential numpy Dependency Issues:
 pip install numpy>=1.22.4 --upgrade
 pip install numpy==1.22.4 scipy==1.7.3 tqdm>=4.66.3 --upgrade
 
-Running the Project Scripts
+# Running the Project Scripts
 
 After setting up the environment, execute the following scripts in order:
 
@@ -66,27 +66,21 @@ python.exe .\scripts\load_lm.py
 Test the Language Model:
 python.exe .\scripts\test_lm.py
 
-Right now i am usimg below base model but you can change to any other model if you see any improvements but roberta-base does not support
-
-Loading the Pretrained roberta-base Model and Tokenizer
-If you would like to start with a pretrained roberta-base model and tokenizer, you can load them as follows:
-
-from transformers import RobertaForMaskedLM, RobertaTokenizerFast
 
 # Load the pretrained roberta-base model and tokenizer
 model = RobertaForMaskedLM.from_pretrained("roberta-base")
 tokenizer = RobertaTokenizerFast.from_pretrained("roberta-base")
 
-Model Setup
+# Model Setup
 Currently, this project uses the roberta-base model as the base model. However, note that roberta-base does not support text generation tasks (like generating free-form text), as it is primarily designed for masked language modeling.
 
-Using Different Models
+# Using Different Models
 If you need a model that supports text generation (e.g., open-ended text or next-word prediction), consider using models like:
 
 gpt-2 or gpt-neo (open-source autoregressive models that support text generation)
 LLaMA-2 or GPT-J for larger, more powerful language generation capabilities, especially if handling Bible and sermon text processing.
 
-Notes
+# Notes
 Ensure that the environment and dependencies are correctly set up before running each script.
 Training might take significant time depending on your hardware.
 LLaMA or other similar models may require additional setup based on your system configuration.
