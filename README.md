@@ -66,6 +66,25 @@ python.exe .\scripts\load_lm.py
 Test the Language Model:
 python.exe .\scripts\test_lm.py
 
+Right now i am usimg below base model but you can change to any other model if you see any improvements but roberta-base does not support
+
+Loading the Pretrained roberta-base Model and Tokenizer
+If you would like to start with a pretrained roberta-base model and tokenizer, you can load them as follows:
+
+from transformers import RobertaForMaskedLM, RobertaTokenizerFast
+
+# Load the pretrained roberta-base model and tokenizer
+model = RobertaForMaskedLM.from_pretrained("roberta-base")
+tokenizer = RobertaTokenizerFast.from_pretrained("roberta-base")
+
+Model Setup
+Currently, this project uses the roberta-base model as the base model. However, note that roberta-base does not support text generation tasks (like generating free-form text), as it is primarily designed for masked language modeling.
+
+Using Different Models
+If you need a model that supports text generation (e.g., open-ended text or next-word prediction), consider using models like:
+
+gpt-2 or gpt-neo (open-source autoregressive models that support text generation)
+LLaMA-2 or GPT-J for larger, more powerful language generation capabilities, especially if handling Bible and sermon text processing.
 
 Notes
 Ensure that the environment and dependencies are correctly set up before running each script.
