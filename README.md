@@ -1,10 +1,9 @@
 # This project fine-tunes a custom language model on Bible and sermon texts using roberta-base. Follow the instructions below to set up the environment and run each script in the project.
 
-Prerequisites
-'''
+### Prerequisites
+```bash
 Python 3.8 or above
 CUDA support if available (for faster training on GPU)
-'''
 
 Setup Instructions
 Navigate to the Project Directory:
